@@ -21,6 +21,7 @@ def printHeader():
 
 """)
 
+
 def playBoard(pboard):
     print(pboard[1],'|',pboard[2],'|',pboard[3])
     print('--+---+--')
