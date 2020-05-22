@@ -194,7 +194,7 @@ while True:
         playBoard(board)
         print(numberList)
         p1Val = inputValue(board)
-        numberList.remove(p1Val)
+        numberList = [ x for x in numberList if x != p1Val]
         print ('Enter position (1-9) :')
         p1Pos = getPlayerMove(board)
 
@@ -207,6 +207,11 @@ while True:
             playBoard(board)
             gamePlay = False
             break
+        
+        if isBoardFull(board):
+            playBoard(board)
+            print('The game is a tie !')
+            break
         '''else:
             if isBoardFull(board):
                 playBoard(board)
@@ -214,7 +219,7 @@ while True:
                 break'''
                 
         p2Val = valCp(board)
-        numberList.remove(p2Val)
+        numberList = [ x for x in numberList if x != p2Val]
         move = compPlay(board, p2Val)
         mMove(board, p2Val, move)
         
