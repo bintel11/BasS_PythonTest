@@ -21,7 +21,6 @@ def printHeader():
 
 """)
 
-
 def playBoard(pboard):
     print(pboard[1],'|',pboard[2],'|',pboard[3])
     print('--+---+--')
@@ -87,12 +86,7 @@ def isBoardFull(board):
         if isSpace(board, i):
             return False
     return True
-'''
-    if "0" in board :
-        return False
-    else :
-        return True
-'''
+
     
 def playAgain():
     # This function returns True if the player wants to play again, otherwise it returns False.
@@ -100,7 +94,7 @@ def playAgain():
     return input().lower().startswith('y')
 
 
-def isSpace(board , pos):
+def isSpace(board, pos):
     return board[pos] == 0
 
 def mMove(board, v, p):
@@ -130,13 +124,7 @@ def getPlayerMove(board):
     return int(move)
 
 
-def compV (board) :
-    val = random.randint(1,9)
-    return val
 
-def compP (board) :
-    pos = random.randint(1,9)
-    return pos
 
 def chooseRandomMoveFromList(board, movesList):
     # Returns a valid move from the passed list on the passed board.
@@ -157,11 +145,8 @@ def compPlay(board, p2Val):
     for i in range(1, 10):
         copy = getBoardCopy(board)
         if isSpace(copy, i):
-            #print("I :", i)
             mMove(copy, p2Val, i)
-            #playBoard(board)
             if isWin():
-                print("I :", i)
                 return i
             
     # Try to take one of the corners, if they are free.
@@ -213,11 +198,7 @@ while True:
             playBoard(board)
             print('The game is a tie !')
             break
-        '''else:
-            if isBoardFull(board):
-                playBoard(board)
-                print('The game is a tie!')
-                break'''
+        
                 
         p2Val = valCp(board)
         numberList = [ x for x in numberList if x != p2Val]
@@ -229,11 +210,7 @@ while True:
             playBoard(board)
             gamePlay = False
             break
-        '''else:
-            if isBoardFull(board):
-                playBoard(board)
-                print('The game is a tie!')
-                break'''
+        
         if isBoardFull(board):
             playBoard(board)
             print('The game is a tie !')
